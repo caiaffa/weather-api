@@ -8,7 +8,7 @@ Clone this repository
 https://github.com/caiaffa/weather-api.git
 ```
 
-And repeat
+And
 
 ```
 docker-compose up
@@ -21,4 +21,4 @@ access
 http://localhost:5000/docs
 ```
 
-![alt text](https://github.com/caiaffa/weather-api/blob/master/diagram.png?raw=true)
+![alt text](https://github.com/caiaffa/weather-api/blob/master/docs/diagram.png)
