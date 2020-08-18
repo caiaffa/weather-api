@@ -1,3 +1,3 @@
-class CelerySendTaskException(Exception):
+class OpenWeatherClientException(Exception):
     def __init__(self, msg: str):
         self.msg = msg

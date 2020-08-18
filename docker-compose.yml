@@ -1,0 +1,48 @@
+version: "3.3"
+services:
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - skynet
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "5671:5671"
+    networks:
+      - skynet
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:80"
+    links:
+      - redis
+      - rabbit
+    depends_on:
+      - rabbit
+      - redis
+    networks:
+      - skynet
+
+  worker:
+    build:
+      context: ./worker
+    links:
+      - redis
+      - rabbit
+    depends_on:
+      - rabbit
+      - redis
+    networks:
+      - skynet
+
+networks:
+  skynet:
+    driver: "bridge"

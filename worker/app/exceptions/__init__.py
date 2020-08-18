@@ -1,1 +1,1 @@
-from .celery_send_task_exception import CelerySendTaskException
+from .open_weather_client_exception import OpenWeatherClientException
