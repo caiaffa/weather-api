@@ -1,6 +1,8 @@
-import ujson
-import hashlib
+import base64
 
 
 def hash_dict(data: dict) -> str:
-    return hashlib.md5(ujson.dumps(data).encode()).hexdigest()
+    key = ""
+    for k, v in data.items():
+        key += str(v).lower()
+    return base64.b64encode(key.encode()).decode()
